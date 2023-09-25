@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service
+  labels:
+    nom-app: demonstration
+    partie: le-fameux-service-demo
+spec:
+  ports:
+    - port: <port>
+  selector:
+    nom-app: demonstration
+    partie: les-petits-pods-demo
+  type: NodePort
