@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demonstration
+  labels:
+    nom-app: demonstration
+    partie: objet-deploiement
+spec:
+  selector:
+    matchLabels:
+      nom-app: demonstration
+      partie: les-petits-pods-demo
+  strategy:
+    type: Recreate
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        nom-app: demonstration
+        partie: les-petits-pods-demo
+    spec:
+      containers:
+        - image: <image>
+          name: <name>
+          ports:
+            - containerPort: <port>
+              name: demo-http
